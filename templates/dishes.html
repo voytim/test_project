@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for d in dishes %}
+    {% set img = d[0] %}
+    {% set ings = ', '.join(d[1]) %}
+    <table class="table table-bordered">
+        <thead class="thead-light">
+        <tr class="d-flex" style="background-color: #e1e1e1">
+            <th scope="col" class="col-2">Название</th>
+            <th scope="col" class="col-6">Фото</th>
+            <th scope="col" class="col-3">Ингредиенты</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="d-flex" style="background-color: #fff67a">
+            <td class="col-2"><p class="bg-warning text-dark">{{ d[3] }}</p></td>
+            <td class="col-6"><img src={{ img }} height=280 width=500></td>
+            <td class="col-3"><p class="bg-warning text-dark">{{ ings }}</p></td>
+
+        </tr>
+        </tbody>
+    </table>
+{% endfor %}
+
+{% endblock %}

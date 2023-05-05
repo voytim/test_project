@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 id="temp">{{ title }}</h2>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <div class="forms">
+            {{ form.ings.label }}<br>
+            {{ form.ings(class="form-control", type="ings") }}<br>
+            {% for error in form.ings.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </div>
+        <p class="forms">{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+        <div>{{ message }}</div>
+    </form>
+{% endblock %}
